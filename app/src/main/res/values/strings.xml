@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Multi-Game</string>
+    <string name="Game1">Number Guessing Game </string>
+    <string name="Game2">Quiz Game</string>
+    <string name="Game3">Math Game</string>
+    <string name="back">Back</string>
+
+    <string name="app_game1">Number Guessing Game</string>
+    <string name="title">Try to guess the number I\'m thinking of \n from 1-1000!</string>
+    <string name="your_guess">Your Guess</string>
+    <string name="hint">Hint: %s</string>
+    <string name="play_again">PLAY AGAIN</string>
+    <string name="random">Random Number</string>
+    <string name="submit">Submit</string>
+    <string name="click_here">Click here before you guess the number</string>
+
+    <string name="app_game2">QuizGame</string>
+    <string name="skip">Skip</string>
+    <string name="play_again1">Play Again</string>
+    <string name="exit">Exit</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="num_que">%d of 10 questions</string>
+    <string name="score">Score: %d</string>
+    <string name="youScored">"You scored: %d"</string>
+
+    <string name="app_game3">MathGame</string>
+    <string name="enter_your_answer">Enter your answer</string>
+    <string name="wrong_guess">Wrong Guess!</string>
+</resources>
