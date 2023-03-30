@@ -177,3 +177,4 @@ fun NumberGuessingGame(amountInput: Int, num: Int, count: Int): Pair<String, Int
     }
     return Pair(text, countNum)
 }
+
