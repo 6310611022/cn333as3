@@ -39,6 +39,7 @@ fun GameScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+
         GameStatus1(
             questionCount = gameUiState.numQue,
             score = gameUiState.score
@@ -100,7 +101,7 @@ fun GameLayout(
                 .height(215.dp)
         )
     }
-    Spacer(modifier = modifier.height(10.dp))
+    Spacer(modifier = modifier.height(14.dp))
 
     Column(
         verticalArrangement = Arrangement.spacedBy(20.dp)
@@ -193,15 +194,19 @@ private fun FinalScoreDialog(
             ) {
                 Text(text = stringResource(R.string.exit),
                     fontSize = 16.sp,
-                    fontFamily = Montserrat)
+                    fontFamily = Montserrat,
+                    color = Color(0xFF16A5A3))
             }
         },
         confirmButton = {
             TextButton(onClick = onPlayAgain) {
                 Text(text = stringResource(R.string.play_again1),
                     fontSize = 16.sp,
-                    fontFamily = Montserrat)
+                    fontFamily = Montserrat,
+                    color = Color(0xFFDE5B6D)
+                )
             }
         }
     )
 }
+

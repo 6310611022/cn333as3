@@ -22,7 +22,8 @@
     <string name="num_que">%d of 10 questions</string>
     <string name="score">Score: %d</string>
     <string name="youScored">"You scored: %d"</string>
-
+    <string name="correct">Correct!</string>
+    <string name="Wrong">Wrong!</string>
     <string name="app_game3">MathGame</string>
     <string name="enter_your_answer">Enter your answer</string>
     <string name="wrong_guess">Wrong Guess!</string>

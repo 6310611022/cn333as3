@@ -16,7 +16,10 @@
 
 package com.example.multi_game.ui
 
+import androidx.compose.material.AlertDialog
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
+import com.example.multi_game.R
 import com.example.multi_game.data.SCORE_INCREASE
 import com.example.multi_game.data.allQuestions
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -58,13 +61,17 @@ class GameViewModel : ViewModel() {
      */
 
     fun checkUserAnswer(userAnswer: String) {
+        var updatedScore = 0
         if (userAnswer.equals(useQuestion.answer)) {
-            val updatedScore = _uiState.value.score.plus(SCORE_INCREASE)
+            updatedScore = _uiState.value.score.plus(SCORE_INCREASE)
             updateGameState(updatedScore)
+
         }else {
-            _uiState.update { currentState ->
-                currentState.copy(useQuestion)}
+            updatedScore = _uiState.value.score
+            updateGameState(updatedScore)
+
         }
+
     }
 
     /*

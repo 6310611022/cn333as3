@@ -50,11 +50,6 @@ val allQuestions = listOf(
             "・ Children especially like me.",
         listOf("Candy Cane", "Sleigh", "Candle", "Snowman"),
         "Candy Cane"),
-    Question("・ I usually travel on snow but sometimes I can fly.\n" +
-            "・ I am essential on Christmas Eve.\n" +
-            "・ I used to be a common mode of transportation in cold countries.",
-        listOf("Christmas Tree", "Gingerbread House", "Sleigh", "Star"),
-        "Sleigh"),
     Question("・ I am much smaller than the usual abode.\n" +
             "・ I am edible and very tasty.\n" +
             "・ I am a building, but no one lives inside me.",
