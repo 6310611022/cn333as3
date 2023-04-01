@@ -12,14 +12,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 class MathGameViewModel : ViewModel() {
-    // Game UI state
+
     private val _uiState = MutableStateFlow(MathGameUniState())
     val uiState: StateFlow<MathGameUniState> = _uiState.asStateFlow()
 
     var userGuess by mutableStateOf("")
         private set
 
-    // Set of words used in the game
+
     private var question: MutableSet<MathQuestion> = mutableSetOf()
     private lateinit var useQuestion: MathQuestion
 
@@ -27,25 +27,14 @@ class MathGameViewModel : ViewModel() {
         resetGame()
     }
 
-    /*
-     * Re-initializes the game data to restart the game.
-     */
     fun resetGame() {
         question.clear()
         _uiState.value = MathGameUniState(useQuestion = pickRandomQuestionAndShuffle())
     }
 
-    /*
-     * Update the user's guess
-     */
     fun updateUserGuess(guessAns: String){
         userGuess = guessAns
     }
-    /*
-     * Checks if the user's guess is correct.
-     * Increases the score accordingly.
-     */
-
     fun checkUserAnswer() {
         if (userGuess.equals(useQuestion.answer)) {
             val updatedScore = _uiState.value.score.plus(SCORE_INCREASE)
@@ -58,11 +47,6 @@ class MathGameViewModel : ViewModel() {
     }
 
 
-
-    /*
-     * Picks a new currentWord and currentScrambledWord and updates UiState according to
-     * current game state.
-     */
     private fun updateGameState(updatedScore: Int) {
         if (question.size == 10){
             //Last round in the game, update isGameOver to true, don't pick a new word
@@ -73,7 +57,6 @@ class MathGameViewModel : ViewModel() {
                 )
             }
         } else{
-            // Normal round in the game
             _uiState.update { currentState ->
                 currentState.copy(
                     isGuessWrong = false,
@@ -85,13 +68,6 @@ class MathGameViewModel : ViewModel() {
             }
         }
     }
-
-//    private fun shuffleCurrentQuestion(question: MathQuestion): MathQuestion {
-//        val shuffleChoice = question.choice.toMutableList()
-//        shuffleChoice.shuffle()
-//        question.choice = shuffleChoice
-//        return question
-//    }
 
     private fun pickRandomQuestionAndShuffle(): MathQuestion {
         useQuestion = allMathQuestion.random()

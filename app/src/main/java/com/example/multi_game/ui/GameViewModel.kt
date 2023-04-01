@@ -27,16 +27,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-/**
- * ViewModel containing the app data and methods to process the data
- */
 class GameViewModel : ViewModel() {
 
-    // Game UI state
     private val _uiState = MutableStateFlow(GameUiState())
     val uiState: StateFlow<GameUiState> = _uiState.asStateFlow()
 
-    // Set of words used in the game
     private var question: MutableSet<Question> = mutableSetOf()
     private lateinit var useQuestion: Question
 
@@ -44,21 +39,10 @@ class GameViewModel : ViewModel() {
         resetGame()
     }
 
-    /*
-     * Re-initializes the game data to restart the game.
-     */
     fun resetGame() {
         question.clear()
         _uiState.value = GameUiState(useQuestion = pickRandomQuestionAndShuffle())
     }
-
-    /*
-     * Update the user's guess
-     */
-    /*
-     * Checks if the user's guess is correct.
-     * Increases the score accordingly.
-     */
 
     fun checkUserAnswer(userAnswer: String) {
         var updatedScore = 0
@@ -74,18 +58,8 @@ class GameViewModel : ViewModel() {
 
     }
 
-    /*
-     * Skip to next word
-     */
-
-
-    /*
-     * Picks a new currentWord and currentScrambledWord and updates UiState according to
-     * current game state.
-     */
     private fun updateGameState(updatedScore: Int) {
         if (question.size == 10){
-            //Last round in the game, update isGameOver to true, don't pick a new word
             _uiState.update { currentState ->
                 currentState.copy(
                     score = updatedScore ,
@@ -93,7 +67,6 @@ class GameViewModel : ViewModel() {
                 )
             }
         } else{
-            // Normal round in the game
             _uiState.update { currentState ->
                 currentState.copy(
                     useQuestion = pickRandomQuestionAndShuffle(),

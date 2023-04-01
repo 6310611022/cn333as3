@@ -2,8 +2,6 @@ package com.example.multi_game.data
 
 import com.example.multi_game.ui.Question
 
-const val SCORE_INCREASE1 = 10
-
 val allQuestions = listOf(
     Question("・ I have four legs. \n" +
             "・ I can fly. \n" +

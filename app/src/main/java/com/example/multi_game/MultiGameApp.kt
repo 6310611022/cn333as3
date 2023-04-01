@@ -33,25 +33,6 @@ enum class MultiScreen(@StringRes val title: Int) {
     Game3(title = R.string.Game3)
 }
 
-/**
-@Composable
-fun HomeScreen(){
-
-    val navController = rememberNavController()
-
-    NavHost(navController, startDestination = MultiScreen.Home.name) {
-        composable(MultiScreen.Home.name) {
-            HomeScreen(navController = navController)
-        }
-        composable(Screen.Greet.name) {
-            GreetingScreen("Android",
-                navController = navController
-            )
-        }
-    }
-}
-*/
-
 @Composable
 fun MultiGameAppBar(
     currentScreen: MultiScreen,
@@ -85,10 +66,10 @@ fun HomeMultiScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
 ) {
-    val backStackEntry by navController.currentBackStackEntryAsState()
+    val backEntry by navController.currentBackStackEntryAsState()
 
     val currentScreen = MultiScreen.valueOf(
-        backStackEntry?.destination?.route ?: MultiScreen.Home.name
+        backEntry?.destination?.route ?: MultiScreen.Home.name
     )
 
     Scaffold(
